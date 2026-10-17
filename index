@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>O nosso primeiro ano 💕</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Fraunces:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --fundo:#fdeef0;
+    --rosa:#e5768a;
+    --rosa-suave:#f8cdd5;
+    --tinta:#4a2a33;
+    --papel:#ffffff;
+    --serif:"Fraunces",Georgia,serif;
+    --mao:"Caveat","Comic Sans MS",cursive;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--fundo);color:var(--tinta);font-family:var(--serif);line-height:1.6}
+
+  /* ---------- TOPO ---------- */
+  header{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2rem 1.2rem;position:relative}
+  header h1{font-size:clamp(2.4rem,8vw,5rem);font-weight:600;line-height:1.1}
+  header .nomes{font-family:var(--mao);font-size:clamp(1.8rem,5vw,2.8rem);color:var(--rosa);margin-top:.6rem}
+  header p.sub{margin-top:1.2rem;max-width:30rem;font-style:italic}
+  .contador{margin-top:2rem;display:flex;gap:1rem;flex-wrap:wrap;justify-content:center}
+  .contador div{background:var(--papel);border-radius:1rem;padding:.8rem 1.2rem;min-width:5.5rem;box-shadow:0 6px 0 var(--rosa-suave)}
+  .contador strong{display:block;font-size:2rem;color:var(--rosa);line-height:1.1}
+  .contador span{font-size:.85rem}
+  .seta{position:absolute;bottom:1.5rem;font-family:var(--mao);font-size:1.4rem;color:var(--rosa);text-decoration:none}
+  /* coração que bate: o único movimento da página */
+  .coracao{font-size:3rem;display:inline-block;animation:bate 1.4s ease-in-out infinite}
+  @keyframes bate{0%,100%{transform:scale(1)}15%{transform:scale(1.25)}30%{transform:scale(1)}45%{transform:scale(1.18)}}
+  @media (prefers-reduced-motion:reduce){.coracao{animation:none}}
+
+  /* ---------- ÁLBUM ---------- */
+  section{padding:4rem 1.2rem}
+  section > h2{text-align:center;font-size:clamp(1.8rem,5vw,2.8rem);font-weight:600;margin-bottom:.4rem}
+  section > p.intro{text-align:center;font-family:var(--mao);font-size:1.5rem;color:var(--rosa);margin-bottom:3rem}
+
+  .album{max-width:64rem;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(15rem,1fr));gap:2.5rem 2rem}
+  .polaroid{background:var(--papel);padding:.8rem .8rem 1rem;box-shadow:0 8px 20px rgba(74,42,51,.15);transform:rotate(var(--giro,-2deg));transition:transform .2s;cursor:pointer;border:0;text-align:left;font:inherit;color:inherit}
+  .polaroid:nth-child(even){--giro:2.5deg}
+  .polaroid:nth-child(3n){--giro:-1deg}
+  .polaroid:hover,.polaroid:focus-visible{transform:rotate(0) scale(1.03);outline:3px solid var(--rosa)}
+  .moldura{aspect-ratio:1/1;background:var(--rosa-suave);display:grid;place-items:center;position:relative;overflow:hidden;font-family:var(--mao);font-size:1.6rem;color:var(--rosa)}
+  .moldura img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .polaroid .legenda{font-family:var(--mao);font-size:1.5rem;margin-top:.7rem;line-height:1.2}
+  .polaroid .data{font-size:.8rem;opacity:.7}
+
+  /* ---------- RAZÕES ---------- */
+  .razoes{max-width:40rem;margin:0 auto;list-style:none;display:grid;gap:1rem}
+  .razoes li{background:var(--papel);border-radius:1rem;padding:1rem 1.4rem;box-shadow:0 5px 0 var(--rosa-suave);display:flex;gap:.9rem;align-items:flex-start}
+  .razoes li::before{content:"💗"}
+
+  /* ---------- CARTA ---------- */
+  .carta{max-width:36rem;margin:0 auto;background:var(--papel);padding:2.2rem 2rem;border-radius:.4rem;box-shadow:0 10px 25px rgba(74,42,51,.15);transform:rotate(-.6deg)}
+  .carta p{margin-bottom:1rem}
+  .carta .assinatura{font-family:var(--mao);font-size:1.8rem;color:var(--rosa);text-align:right;margin:0}
+
+  footer{text-align:center;padding:3rem 1rem;font-family:var(--mao);font-size:1.5rem;color:var(--rosa)}
+
+  /* ---------- FOTO GRANDE ---------- */
+  dialog{border:0;background:transparent;max-width:min(92vw,40rem);margin:auto}
+  dialog::backdrop{background:rgba(74,42,51,.75)}
+  dialog .polaroid{transform:none;cursor:default;width:100%}
+  dialog .polaroid:hover{transform:none;outline:0}
+  .fechar{position:absolute;top:-2.6rem;right:0;background:none;border:0;color:#fff;font-size:2rem;cursor:pointer}
+</style>
+</head>
+<body>
+
+<!-- ============ TOPO ============ -->
+<header>
+  <div class="coracao" aria-hidden="true">💕</div>
+  <h1>O nosso primeiro ano</h1>
+  <!-- ✏️ MUDA OS NOMES -->
+  <div class="nomes">O Teu Nome &amp; O Nome Dela</div>
+  <!-- ✏️ MUDA ESTE TEXTO -->
+  <p class="sub">Um álbum pequenino com alguns dos momentos que mais gosto de ter vivido contigo.</p>
+
+  <div class="contador" aria-live="polite">
+    <div><strong id="dias">0</strong><span>dias</span></div>
+    <div><strong id="horas">0</strong><span>horas</span></div>
+    <div><strong id="minutos">0</strong><span>minutos</span></div>
+    <div><strong id="segundos">0</strong><span>segundos</span></div>
+  </div>
+  <a class="seta" href="#album">ver o álbum ↓</a>
+</header>
+
+<!-- ============ ÁLBUM ============ -->
+<section id="album">
+  <h2>O nosso álbum</h2>
+  <p class="intro">clica numa foto para a ver maior</p>
+
+  <div class="album" id="grelha">
+
+    <!-- ===== FOTO 1 =====
+         Para trocar: põe a tua foto na pasta "fotos" com o nome foto1.jpg
+         Muda também a legenda e a data. -->
+    <button class="polaroid">
+      <div class="moldura"><span>foto aqui 📷</span><img src="fotos/foto1.jpg" alt="Foto 1" onerror="this.remove()"></div>
+      <div class="legenda">O dia em que tudo começou</div>
+      <div class="data">22 de outubro de 2025</div>
+    </button>
+
+    <!-- ===== FOTO 2 ===== -->
+    <button class="polaroid">
+      <div class="moldura"><span>foto aqui 📷</span><img src="fotos/foto2.jpg" alt="Foto 2" onerror="this.remove()"></div>
+      <div class="legenda">A nossa primeira viagem</div>
+      <div class="data">data aqui</div>
+    </button>
+
+    <!-- ===== FOTO 3 ===== -->
+    <button class="polaroid">
+      <div class="moldura"><span>foto aqui 📷</span><img src="fotos/foto3.jpg" alt="Foto 3" onerror="this.remove()"></div>
+      <div class="legenda">Legenda da foto 3</div>
+      <div class="data">data aqui</div>
+    </button>
+
+    <!-- ===== FOTO 4 ===== -->
+    <button class="polaroid">
+      <div class="moldura"><span>foto aqui 📷</span><img src="fotos/foto4.jpg" alt="Foto 4" onerror="this.remove()"></div>
+      <div class="legenda">Legenda da foto 4</div>
+      <div class="data">data aqui</div>
+    </button>
+
+    <!-- ===== FOTO 5 ===== -->
+    <button class="polaroid">
+      <div class="moldura"><span>foto aqui 📷</span><img src="fotos/foto5.jpg" alt="Foto 5" onerror="this.remove()"></div>
+      <div class="legenda">Legenda da foto 5</div>
+      <div class="data">data aqui</div>
+    </button>
+
+    <!-- ===== FOTO 6 ===== -->
+    <button class="polaroid">
+      <div class="moldura"><span>foto aqui 📷</span><img src="fotos/foto6.jpg" alt="Foto 6" onerror="this.remove()"></div>
+      <div class="legenda">Legenda da foto 6</div>
+      <div class="data">data aqui</div>
+    </button>
+
+    <!-- 👉 Para MAIS fotos: copia um bloco <button class="polaroid"> ... </button>
+         inteiro, cola aqui por baixo e muda o número (foto7.jpg, etc.) -->
+
+  </div>
+</section>
+
+<!-- ============ RAZÕES ============ -->
+<section>
+  <h2>Porque é que gosto tanto de ti</h2>
+  <p class="intro">só algumas, a lista é enorme</p>
+  <ul class="razoes">
+    <!-- ✏️ MUDA AS RAZÕES (podes apagar ou copiar linhas <li>) -->
+    <li>Razão 1: escreve aqui uma coisa que adoras nela.</li>
+    <li>Razão 2: escreve aqui outra coisa.</li>
+    <li>Razão 3: e mais uma.</li>
+  </ul>
+</section>
+
+<!-- ============ CARTA ============ -->
+<section>
+  <h2>Uma carta para ti</h2>
+  <p class="intro">porque há coisas que só em papel</p>
+  <div class="carta">
+    <!-- ✏️ ESCREVE A TUA CARTA -->
+    <p>Meu amor,</p>
+    <p>Escreve aqui o que sentes. Fala do que viveram este ano, do que aprendeste com ela e do que queres viver nos próximos.</p>
+    <p>Obrigado por tudo. Gosto muito de ti.</p>
+    <p class="assinatura">Com todo o amor, o Teu Nome</p>
+  </div>
+</section>
+
+<footer>
+  feliz 1 ano, meu amor 💕
+</footer>
+
+<!-- ============ FOTO GRANDE (não mexer) ============ -->
+<dialog id="ver">
+  <button class="fechar" aria-label="Fechar">×</button>
+  <div class="polaroid" id="verConteudo"></div>
+</dialog>
+
+<script>
+  // ✏️ DATA EM QUE COMEÇARAM (ano, mês, dia). Atenção: janeiro = 0, outubro = 9
+  const inicio = new Date(2025, 9, 22, 0, 0, 0);
+
+  function atualizar(){
+    const d = Math.max(0, Date.now() - inicio.getTime());
+    document.getElementById('dias').textContent     = Math.floor(d / 86400000);
+    document.getElementById('horas').textContent    = Math.floor(d / 3600000) % 24;
+    document.getElementById('minutos').textContent  = Math.floor(d / 60000) % 60;
+    document.getElementById('segundos').textContent = Math.floor(d / 1000) % 60;
+  }
+  atualizar();
+  setInterval(atualizar, 1000);
+
+  // Abrir foto em grande
+  const ver = document.getElementById('ver');
+  const conteudo = document.getElementById('verConteudo');
+  document.querySelectorAll('#grelha .polaroid').forEach(p => {
+    p.addEventListener('click', () => {
+      conteudo.innerHTML = p.innerHTML;
+      ver.showModal();
+    });
+  });
+  ver.querySelector('.fechar').addEventListener('click', () => ver.close());
+  ver.addEventListener('click', e => { if (e.target === ver) ver.close(); });
+</script>
+</body>
+</html>
